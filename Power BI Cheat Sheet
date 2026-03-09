@@ -1,0 +1,189 @@
+💡 Power BI Cheat Sheet
+1️⃣ Data Sources & Import
+
+Get Data → Connect to:
+
+Excel, CSV, Text
+
+SQL Server, Oracle, MySQL
+
+SharePoint Lists / Excel Online
+
+Power Platform (Dataverse, Power BI datasets)
+
+Web / APIs / JSON / XML
+
+Transform Data → Power Query Editor
+
+Remove Columns / Rows
+
+Split Columns / Merge Columns
+
+Change Data Types
+
+Replace Values
+
+Pivot / Unpivot
+
+Filter rows
+
+Refresh Data → Scheduled or manual
+
+2️⃣ Data Modeling
+
+Relationships
+
+One-to-One (1:1)
+
+One-to-Many (1:N)
+
+Many-to-Many (M:M)
+
+Cardinality → defines how tables relate
+
+Cross-filter direction
+
+Single → Default, filters flow in one direction
+
+Both → Filters propagate both ways (be careful with circular references)
+
+Star Schema → Recommended structure:
+
+Fact tables → transactions, metrics
+
+Dimension tables → attributes, categories
+
+3️⃣ DAX Basics (Data Analysis Expressions)
+
+Aggregations
+
+SUM(Column) → Sum of column
+
+AVERAGE(Column) → Average of column
+
+COUNT(Column) → Counts values
+
+COUNTROWS(Table) → Counts rows in table
+
+Filtering
+
+CALCULATE([Measure], FilterExpression)
+
+FILTER(Table, Condition)
+
+Time Intelligence
+
+TOTALYTD([Measure], DateColumn)
+
+SAMEPERIODLASTYEAR(DateColumn)
+
+DATEADD(DateColumn, -1, YEAR)
+
+Logical
+
+IF(Condition, Result1, Result2)
+
+SWITCH(Expression, Value1, Result1, Value2, Result2, …)
+
+Text
+
+CONCATENATE(Text1, Text2) or & operator
+
+LEFT, RIGHT, MID, LEN
+
+Example Measure
+
+Total Sales := SUM(Sales[Amount])
+Sales LY := CALCULATE([Total Sales], SAMEPERIODLASTYEAR(Date[Date]))
+4️⃣ Visualizations
+
+Charts
+
+Bar / Column / Stacked / 100% Stacked
+
+Line / Area / Combo
+
+Pie / Donut
+
+Funnel / Waterfall
+
+Scatter / Bubble
+
+Tables & Matrix
+
+Matrix → Pivot style
+
+Table → Raw data
+
+Cards & KPIs
+
+Single values (Totals, Averages)
+
+KPI → Target vs Actual
+
+Slicers & Filters
+
+Slicers → Visual filter UI
+
+Filters pane → Page, Visual, Report-level filters
+
+5️⃣ Power Query (M Language) Quick Tips
+
+Table.SelectRows → Filter rows
+
+Table.RemoveColumns → Remove columns
+
+Table.RenameColumns → Rename columns
+
+Table.AddColumn → Add custom column
+
+Table.Pivot / Table.Unpivot → Reshape data
+
+DateTime.LocalNow() → Get current date/time
+
+6️⃣ Power BI Service
+
+Publish Reports → Upload PBIX to workspace
+
+Workspaces
+
+Classic workspace → Old version
+
+New workspace → Modern collaboration
+
+Dashboards
+
+Pin visuals from reports
+
+Data Refresh
+
+Scheduled refresh → daily / hourly
+
+Gateway → for on-premises sources
+
+7️⃣ Best Practices
+
+Use star schema → easier DAX and performance
+
+Avoid calculated columns if you can use measures
+
+Limit visuals → avoid performance issues
+
+Name measures & columns clearly
+
+Use data types correctly
+
+Document your data lineage & sources
+
+Enable Row-Level Security (RLS) if needed
+
+8️⃣ Shortcuts & Tips
+Action	Shortcut
+Refresh Data	Ctrl + R
+Open Query Editor	Transform Data
+New Measure	Alt + N, M
+New Column	Alt + N, C
+Duplicate Visual	Ctrl + D
+Copy Visual	Ctrl + C
+Paste Visual	Ctrl + V
+Format Painter	Ctrl + Shift + C / V
